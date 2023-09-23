@@ -11,7 +11,7 @@ h1 {
   color: var(--color-white);
 }
 .task-form {
-  margin: 20px;
+  margin: 1.2rem;
   display: flex;
   justify-content: center;
 }
@@ -24,7 +24,7 @@ h1 {
 }
 
 .task-input {
-  width: 15rem;
+  width: auto;
   padding: 1rem;
   border-style: none;
   font-size: medium;
@@ -69,7 +69,7 @@ h1 {
 }
 .icons {
   display: flex;
-  gap: 6px;
+  gap: 0.4rem;
 }
 .divider {
   padding: 0.5rem;
@@ -86,17 +86,17 @@ b{
 
 .spinner {
     display: inline-block;
-    width: 80px;
-    height: 80px;
+    width: 6rem;
+    height: 6rem;
   }
   .spinner:after {
     content: " ";
     display: block;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
+    width: 5rem;
+    height: 5rem;
+    margin: 0.5rem;
     border-radius: 50%;
-    border: 6px solid var(--color-orange);
+    border: 0.4rem solid var(--color-orange);
     border-color: var(--color-orange) transparent var(--color-orange);
     animation: spinner 0.8s linear infinite;
   }
@@ -115,3 +115,40 @@ b{
     justify-content: center;
     align-items: center;
   }
+
+@media screen and (max-width:702px) {
+  h1{
+    font-size:1.2rem
+
+  }
+
+  .task-form {
+    margin: 0.6rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  
+.task-input {
+  width: 60%;
+  font-size: 0.8rem;
+  border-style: none;
+  font-weight: bold;
+  outline-style: none;
+}
+
+.task-button {
+  width: auto;
+  font: bold;
+  border: none;
+  background-color: var(--color-purple);
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+.divider {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+}

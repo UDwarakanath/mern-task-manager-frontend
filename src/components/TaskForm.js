@@ -12,7 +12,7 @@ function TaskForm({
       <input
         type="text"
         name="name"
-        value={name}
+        value={name} 
         onChange={handleTaskChange}
         placeholder="Please Enter The Task"
         className="task-input"
