@@ -29,14 +29,16 @@ function TaskList() {
     e.preventDefault();
     if (name === "") {
       toast.error("Input Field Cannot be Empty");
-    }
+    }else{
+      
     try {
       await axios.post(`${URI}/api/tasks`, formData);
-      toast.success("Task Created Success Fully");
+      toast.success("Task Created SuccessFully");
       setFormData({ ...formData, name: "" });
       getTasks();
     } catch (error) {
       toast.error(error.message);
+    }
     }
   };
 
