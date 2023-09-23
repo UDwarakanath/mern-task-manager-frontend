@@ -72,12 +72,20 @@ h1 {
   gap: 0.4rem;
 }
 .divider {
+  position: sticky;
+    top: 10em;
   padding: 0.5rem;
   display: flex;
   justify-content: space-between;
+  
+  background-color: var( --color-orange);
 }
 .divider p {
+  position: sticky;
+    top: 10em;
   font-weight: bold;
+  
+  background-color: var( --color-orange);
 }
 
 b{
@@ -117,13 +125,19 @@ b{
   }
 
 @media screen and (max-width:702px) {
+  .App {
+    width: 100%;
+    margin: 0;
+     background-color: var(--color-white);
+     padding-bottom: 10px;
+   }
+
   h1{
     font-size:1.2rem
 
   }
 
   .task-form {
-    margin: 0.6rem;
     display: flex;
     justify-content: center;
   }
