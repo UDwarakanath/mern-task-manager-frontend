@@ -13,6 +13,8 @@ function TaskList() {
   const [formData, setFormData] = useState({ name: "", completed: false });
   const { name } = formData;
 
+  const URL = process.env.MERN_TASK_SERVER_URL
+
   useEffect(() => {
     getTasks();
   }, []);
@@ -28,7 +30,7 @@ function TaskList() {
       toast.error("Input Field Cannot be Empty");
     }
     try {
-      await axios.post("http://localhost:5000/api/tasks", formData);
+      await axios.post(`${URL}/api/tasks`, formData);
       toast.success("Task Created Success Fully");
       setFormData({ ...formData, name: "" });
       getTasks();
@@ -40,7 +42,7 @@ function TaskList() {
   const getTasks = async () => {
     setIsLoading(true);
     try {
-      const tasks = await axios.get("http://localhost:5000/api/tasks");
+      const tasks = await axios.get(`${URL}/api/tasks`);
       setTasks(tasks.data);
       setIsLoading(false);
     } catch (error) {
@@ -50,7 +52,7 @@ function TaskList() {
 
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+      await axios.delete(`${URL}/api/tasks/${id}`);
       toast.success("Task Deleted Successfully");
       getTasks();
     } catch (err) {
@@ -72,7 +74,7 @@ function TaskList() {
   const updateTask = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/api/tasks/${taskID}`, formData);
+      await axios.patch(`${URL}/api/tasks/${taskID}`, formData);
       setFormData({ ...formData, name: "" });
       setIsEditing(false);
       getTasks();
@@ -89,7 +91,7 @@ function TaskList() {
     };
     try {
       await axios.patch(
-        `http://localhost:5000/api/tasks/${task._id}`,
+        `${URL}/api/tasks/${task._id}`,
         newFormData
       );
       newFormData.completed && toast.success("Hurray Task Completd Successfully");
